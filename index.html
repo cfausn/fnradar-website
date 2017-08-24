@@ -301,9 +301,17 @@
                 </div>
             </div>
         </div>
+        <div class="section secondary-section " id="portfolio">
+          <div class="triangle"></div>
+          <div class="container">
+              <h1>Roadmap</h1>
+
+              <div id="chart_div"></div>
+          </div>
+        </div>
 
         <!-- Portfolio section start -->
-        <div class="section secondary-section " id="portfolio">
+        <!--div class="section secondary-section " id="portfolio">
             <div class="triangle"></div>
             <div class="container">
                 <div class=" title">
@@ -1130,6 +1138,71 @@
         <!-- ScrollUp button end -->
         <!-- Include javascript -->
         <script src="js/jquery.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['gantt']});
+          google.charts.setOnLoadCallback(drawMobile);
+
+          function drawMobile() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('string', 'Resource');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+            data.addRows([
+              ['Update Roadmap', 'Update Roadmap', 'landing page',
+               new Date(2017, 8, 24), new Date(2017, 8, 25), null, 80, null],
+              ['Draft Main Website', 'Draft Main Website', 'website development',
+               new Date(2017, 9, 1), new Date(2017, 9, 8), null, 0, null],
+              ['Create User Portal', 'Create User Portal', 'website development',
+               new Date(2017, 9, 8), new Date(2017, 9, 16), null, 0, "Draft Main Website"],
+              ['Basic User Accounts', 'Basic User Accounts', 'website development',
+               new Date(2017, 9, 11), new Date(2017, 9, 18), null, 0, "Draft Main Website"],
+              ['Create User Pages', 'Create User Pages', 'website development',
+               new Date(2017, 9, 29), new Date(2017, 10, 6), null, 0, "Basic User Accounts"],
+              ['Add Mock Posting Mechanism', 'Add Mock Posting Mechanism', 'website development',
+               new Date(2017, 10, 6), new Date(2017, 10, 15), null, 0, null],
+              ['Determine Hosting Service', 'Determine Hosting Service', 'api development',
+               new Date(2017, 9, 1), new Date(2017, 9, 3), null, 0, null],
+              ['Create API Repo', 'Create API Repo', 'api development',
+               new Date(2017, 9, 1), new Date(2017, 9, 3), null, 0, null],
+              ['Setup Database Structure', 'Setup Database Structure', 'api development',
+               new Date(2017, 9, 3), new Date(2017, 9, 8), null, 0, "Create API Repo"],
+              ['POST and GET Functions', 'POST and GET Functions', 'api development',
+               new Date(2017, 9, 8), new Date(2017, 9, 16), null, 0, null],
+              ['User Storage', 'User Storage', 'api development',
+               new Date(2017, 9, 8), new Date(2017, 9, 16), null, 0, null],
+              ['Draft App Design', 'Draft Android App Design', 'app development',
+               new Date(2017, 8, 24), new Date(2017, 9, 1), null, 0, null],
+              ['Create App Structure', 'Create App Structure', 'app development',
+               new Date(2017, 9, 1), new Date(2017, 9, 16), null, 0, null],
+              ['Integrate User Pages', 'Integrate User Pages', 'app development',
+               new Date(2017, 9, 16), new Date(2017, 9, 25), null, 0, null],
+              ['Finish Whitepaper', 'Finish Whitepaper', 'blockchain development',
+               new Date(2017, 8, 24), new Date(2017, 9, 16), null, 0, null],
+              ['Determine Algorithms', 'Determine Algorithms', 'blockchain development',
+               new Date(2017, 8, 24), new Date(2017, 9, 8), null, 0, null],
+            ]);
+
+            var options = {
+              height: 500,
+              gantt: {
+                trackHeight: 30
+              }
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+          }
+
+        </script>
         <script type="text/javascript" src="js/jquery.mixitup.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/modernizr.custom.js"></script>

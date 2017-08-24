@@ -28,6 +28,7 @@
 /* ==================================================
   Features Styling
   ================================================== */
+
 .block {
   color: #fff;
   height: 490px;
@@ -448,6 +449,13 @@ p {
 .secondary-section h1, .secondary-section .title p {
     color: #181A1C;
 }
+
+.secondary-section #chart_div{
+  
+  overflow-y: scroll;
+  overflow-x: scroll;
+
+}
 /* Third section use bacground image */
 .third-section {
     padding-bottom: 70px;
@@ -536,6 +544,12 @@ p {
     height: 40px;
     text-align: center;
 }
+
+.chart_div{
+
+  overflow-y: scroll;
+}
+
 #portfolio-grid .mix {
     opacity: 0;
     display: none;
